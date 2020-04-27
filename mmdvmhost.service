@@ -1,8 +1,7 @@
 [Unit]
 Description=MMDVM Host Service
 After=syslog.target network.target
-After=nextiondriver.service
-Requires=nextiondriver.service
+Requires=nextion.service
 
 [Service]
 Type=simple
