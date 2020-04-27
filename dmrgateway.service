@@ -4,7 +4,7 @@ After=syslog.target network.target
 
 [Service]
 User=root
-WorkingDirectory=/opt/dmr/DMRGateway
+WorkingDirectory=/opt/dmr/DMRGateway/
 ExecStart=/usr/bin/screen -S DMRGateway -D -m /opt/dmr/DMRGateway/DMRGateway /opt/dmr/ini/DMRGateway.ini
 ExecStop=/usr/bin/screen -S DMRGateway -X quit
 
