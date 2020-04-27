@@ -1,0 +1,15 @@
+[Unit]
+Description=NextionDriver service
+DefaultDependencies=no
+
+[Service]
+Type=simple
+Restart=always
+User=root
+WorkingDirectory=/opt/dmr/MMDVMHost/Nextion/
+Type=forking
+ExecStart=/opt/dmr/NextionDriver/NextionDriver -i -c /opt/dmr/ini/MMDVM.ini
+ExecStop=/usr/bin/killall NextionDriver
+
+[Install]
+WantedBy=multi-user.target
