@@ -1,16 +1,15 @@
 [Unit]
-Description=MMDVMHost Service
-After=syslog.target network.target
-After=nextion.service
+Description=NextionDriver service
+DefaultDependencies=no
 
 [Service]
 Type=simple
 Restart=always
-RestartSec=1
 User=root
-WorkingDirectory=/opt/dmr/MMDVMHost
-ExecStart=/usr/bin/screen -S MMDVMHost -D -m /opt/dmr/MMDVMHost/MMDVMHost /opt/dmr/ini/MMDVM.ini
-ExecStop=/usr/bin/screen -S MMDVMHost -X quit
+WorkingDirectory=/opt/dmr/NextionDriver
+Type=forking
+ExecStart=/opt/dmr/NextionDriver/NextionDriver -i -c /opt/dmr/ini/MMDVM.ini
+ExecStop=/usr/bin/killall NextionDriver
 
 [Install]
 WantedBy=multi-user.target
