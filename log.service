@@ -1,0 +1,14 @@
+[Unit]
+Description=Log
+DefaultDependencies=no
+
+[Service]
+Type=simple
+User=root
+Type=forking
+WorkingDirectory=/opt/dmr/service/data
+ExecStart=/opt/dmr/service/data/mmdvm-log.sh
+ExecStop=/usr/bin/killall mmdvm-log
+
+[Install]
+WantedBy=multi-user.target
